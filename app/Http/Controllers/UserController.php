@@ -28,8 +28,8 @@ class UserController extends Controller {
 
             if($validateUser->fails()){
                 return response()->json([
-                    'errors' => $validateUser->errors()
-                ], 401);
+                    'message' => $validateUser->errors()
+                ], 400);
             }
 
             $user = User::create([
@@ -68,8 +68,8 @@ class UserController extends Controller {
             
             if($validation->fails()){
                 return response()->json([
-                    'errors' => $validation->errors()
-                ], 401);
+                    'message' => $validation->errors()
+                ], 400);
             }
             
             $credentials = $request->only(['email', 'password']);

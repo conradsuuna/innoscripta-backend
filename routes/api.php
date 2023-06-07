@@ -29,10 +29,10 @@ Route::controller(ArticlesController::class)->group(function(){
     Route::get('sources-from-newa-api', 'getNewsAPISources');
 });
 
-// add protected routes here
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
     Route::post('add-preference', [UserSettingsController::class, 'saveUserPreferences']);
 });
+

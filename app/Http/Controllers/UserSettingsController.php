@@ -13,9 +13,9 @@ class UserSettingsController extends Controller
         $data = $request->all();
         $user = Auth::user();
 
-        $preferred_sources = $data['preferred_sources'];
-        $category = $data['category'];
-        $authors = $data['authors'];
+        $preferred_sources = $data['preferred_sources']??[];
+        $category = $data['category']??[];
+        $authors = $data['authors']??[];
 
         try{
             // save user preferences
@@ -43,7 +43,7 @@ class UserSettingsController extends Controller
                 'message' => 'User preferences saved successfully',
                 'user_settings' => $user_settings,
             ], 200);
-
+    
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 'error',
