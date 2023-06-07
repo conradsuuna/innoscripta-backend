@@ -4,7 +4,7 @@
 git clone https://github.com/conradsuuna/innoscripta-backend.git
 
 ## add .env file
-touch .env
+go into the project directory and `touch .env` to create an environment file
 
 copy contents from .ENVEXAMPLE and paste them in .env and modify accordingly
 
